@@ -34,6 +34,19 @@ gap by integrating operational supply chain data into financial risk models.
 
 ## 🏗️ System Architecture
 
+┌─────────────────────────────────────────────────────┐
+│                  LogisChain AI                       │
+├─────────────────┬───────────────┬───────────────────┤
+│  Physical Layer │ Financial     │ Intelligence       │
+│  (Supply Chain) │ Layer         │ Layer (AI Models)  │
+├─────────────────┼───────────────┼───────────────────┤
+│ • Port data     │ • LC pricing  │ • GNN embeddings  │
+│ • Shipment data │ • SCF rates   │ • TCN forecasting │
+│ • Carrier data  │ • CCC monitor │ • Transformer risk│
+│ • Inventory     │ • Covenant    │ • XGBoost scoring │
+│ • OTIF metrics  │   monitoring  │ • SC-PD model     │
+└─────────────────┴───────────────┴───────────────────┘
+
 ---
 
 ## 📊 Model Performance
@@ -60,14 +73,38 @@ manage trade finance portfolios while responding to supply chain disruptions.
 #### Mode 1 — Trade Finance Portfolio Management
 ![Trade Finance Mode](docs/screenshots/trade_finance.png)
 
+Role: Head of Trade Finance at international bank
+Portfolio: $500M across 50 corporate clients
+Objective: Maximize risk-adjusted return
+Decisions: Approve/reject LCs, set pricing,
+manage collateral requirements
+
 #### Mode 2 — Supply Chain Finance Pricing
 ![SCF Mode](docs/screenshots/supply_chain_finance.png)
+
+Role: Head of SCF Programme at global bank
+Portfolio: $200M SCF programme, 500 suppliers
+Objective: Maximize profitability
+Decisions: Set discount rates, approve suppliers,
+manage concentration limits
+
 
 #### Mode 3 — Cargo Insurance Underwriter
 ![Cargo Mode](docs/screenshots/cargo_insurance.png)
 
+Role: Senior Underwriter at marine cargo insurer
+Book: $2B annual premiums, 1000 policies
+Objective: Maintain combined ratio < 95%
+Decisions: Price policies, set reserves,
+implement loss prevention
+
 #### Mode 4 — Logistics Investment Analyst
 ![Logistics Mode](docs/screenshots/logistics_investment.png)
+
+Role: Infrastructure analyst at logistics PE fund
+Capital: $250M for logistics asset investment
+Objective: Maximize IRR over 7-year fund life
+Decisions: Acquire/divest assets, optimize network
 
 ### 🏆 Scoring System (1000 Points)
 
@@ -108,15 +145,73 @@ manage trade finance portfolios while responding to supply chain disruptions.
 
 ### Supply Chain Adjusted PD (SC-PD)
 
+From document Section A5.4:
+SC-PD = Traditional PD × (1 + 0.3×OTIF_adj
++ 0.2×Inv_adj
++ 0.15×Network_adj)
+Where:
+OTIF_adj    = max(0, (90% - OTIF_actual) / 10%)
+Inv_adj     = max(0, (6.0 - InvTurnover) / 3.0)
+Network_adj = min(1.0, HHI × 2)
+Our Results:
+Traditional PD:  2.80%
+SC-Adjusted PD:  4.65%
+Risk Uplift:     65.9%
+
 ### Cash Conversion Cycle (CCC)
+
+From document Section A2.2:
+CCC = DIO + DSO - DPO
+DIO = lead_times        (Days Inventory Outstanding)
+DSO = shipping_times    (Days Sales Outstanding)
+DPO = mfg_lead_time    (Days Payable Outstanding)
+Portfolio CCC:  6.9 days
+Covenant:       26.9 days
+Breach Risk:    9/100 clients
 
 ---
 
 ## 🗂️ Project Structure
 
+logischain-ai/
+├── README.md
+├── requirements.txt
+├── data/
+│   ├── raw/
+│   │   └── supply_chain_data.csv
+│   ├── processed/
+│   │   ├── supply_chain_clean.csv
+│   │   └── eda_plots/
+│   └── features/
+│       └── features.csv
+├── src/
+│   ├── data/
+│   │   ├── data_loader.py
+│   │   ├── eda.py
+│   │   └── investigate.py
+│   ├── features/
+│   │   └── feature_engineering.py
+│   ├── models/
+│   │   ├── xgboost_model.py
+│   │   ├── gnn.py
+│   │   ├── tcn.py
+│   │   └── transformer.py
+│   └── financial/
+│       └── financial_models.py
+├── demo/
+│   └── app.py
+├── docs/
+│   ├── feature_catalog.md
+│   ├── patent_concept.md
+│   └── screenshots/
+└── tests/
+
 ---
 
 ## 🚀 Installation & Setup
+
+Python 3.10+
+Windows/Mac/Linux
 
 ### Prerequisites
 
@@ -166,6 +261,35 @@ streamlit run demo/app.py
 
 ## 📦 Dependencies
 
+Core
+pandas
+numpy
+scikit-learn
+Visualization
+matplotlib
+seaborn
+plotly
+Machine Learning
+xgboost
+lightgbm
+optuna
+shap
+Deep Learning
+torch
+torch-geometric
+Time Series
+darts
+Survival Analysis
+lifelines
+Network Analysis
+networkx
+Financial
+yfinance
+Dashboard
+streamlit
+MLOps
+mlflow
+
 ---
 
 ## 📊 Data Sources
@@ -181,6 +305,21 @@ streamlit run demo/app.py
 ---
 
 ## ⚠️ Limitations
+1. Dataset Size
+    Real data: 100 rows
+    Document benchmark: 42,000+ transactions
+    Impact: XGBoost AUC 0.639 vs target 0.771
+2. Missing Columns
+    No Accounts Receivable → DSO proxy used
+    No Accounts Payable → DPO proxy used
+    No AIS vessel data → Synthetic port data
+3. GNN Nodes
+    Real suppliers: 5
+    Synthetic graph: 210 nodes for training
+    Impact: All real suppliers show similar risk
+4. ECE Calibration
+    Our ECE: 0.136 vs target 0.03
+    Reason: Small dataset (59 real transactions)
 
 ---
 
