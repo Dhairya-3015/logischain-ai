@@ -34,8 +34,8 @@ gap by integrating operational supply chain data into financial risk models.
 
 ## 🏗️ System Architecture
 
-┌─────────────────────────────────────────────────────────────┐
-│                     LogisChain AI                            │
+┌────────────────────────────────────────────────────────────┐
+│                     LogisChain AI                          │
 ├──────────────────────┬──────────────────┬──────────────────┤
 │   Physical Layer     │  Financial Layer │ Intelligence     │
 │  (Supply Chain)      │                  │ Layer (AI Models)│
@@ -175,6 +175,7 @@ Breach Risk:    9/100 clients
 ## 🗂️ Project Structure
 
 logischain-ai/
+├── .gitignore   
 ├── README.md
 ├── requirements.txt
 ├── data/
@@ -262,42 +263,42 @@ streamlit run demo/app.py
 
 ## 📦 Dependencies
 
-#### Core
+### Core
 pandas
 numpy
 scikit-learn
 
-#### Visualization
+### Visualization
 matplotlib
 seaborn
 plotly
 
-#### Machine Learning
+### Machine Learning
 xgboost
 lightgbm
 optuna
 shap
 
-#### Deep Learning
+### Deep Learning
 torch
 torch-geometric
 
-#### Time Series
+### Time Series
 darts
 
-#### Survival Analysis
+### Survival Analysis
 lifelines
 
-#### Network Analysis
+### Network Analysis
 networkx
 
-#### Financial
+### Financial
 yfinance
 
-#### Dashboard
+### Dashboard
 streamlit
 
-#### MLOps
+### MLOps
 mlflow
 
 ---
