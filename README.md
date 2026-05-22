@@ -346,5 +346,5 @@ confidentiality terms accepted at project commencement.
 
 ---
 
-*LogisChain AI v1.0 | ZeTheta Algorithms | 2026*
+*LogisChain AI v1.0 | ZeTheta Algorithms | 2026* 
 
