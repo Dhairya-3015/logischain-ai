@@ -34,18 +34,19 @@ gap by integrating operational supply chain data into financial risk models.
 
 ## 🏗️ System Architecture
 
-┌─────────────────────────────────────────────────────┐
-│                  LogisChain AI                       │
-├─────────────────┬───────────────┬───────────────────┤
-│  Physical Layer │ Financial     │ Intelligence       │
-│  (Supply Chain) │ Layer         │ Layer (AI Models)  │
-├─────────────────┼───────────────┼───────────────────┤
-│ • Port data     │ • LC pricing  │ • GNN embeddings  │
-│ • Shipment data │ • SCF rates   │ • TCN forecasting │
-│ • Carrier data  │ • CCC monitor │ • Transformer risk│
-│ • Inventory     │ • Covenant    │ • XGBoost scoring │
-│ • OTIF metrics  │   monitoring  │ • SC-PD model     │
-└─────────────────┴───────────────┴───────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                     LogisChain AI                            │
+├──────────────────────┬──────────────────┬──────────────────┤
+│   Physical Layer     │  Financial Layer │ Intelligence     │
+│  (Supply Chain)      │                  │ Layer (AI Models)│
+├──────────────────────┼──────────────────┼──────────────────┤
+│ • Port data          │ • LC pricing     │ • GNN embeddings │
+│ • Shipment data      │ • SCF rates      │ • TCN forecasting│
+│ • Carrier data       │ • CCC monitor    │ • Transformer    │
+│ • Inventory          │ • Covenant       │   risk analysis  │
+│ • OTIF metrics       │   monitoring     │ • XGBoost scoring│
+│                      │                  │ • SC-PD model    │
+└──────────────────────┴──────────────────┴──────────────────┘
 
 ---
 
@@ -261,33 +262,42 @@ streamlit run demo/app.py
 
 ## 📦 Dependencies
 
-Core
+# Core
 pandas
 numpy
 scikit-learn
-Visualization
+
+# Visualization
 matplotlib
 seaborn
 plotly
-Machine Learning
+
+# Machine Learning
 xgboost
 lightgbm
 optuna
 shap
-Deep Learning
+
+# Deep Learning
 torch
 torch-geometric
-Time Series
+
+# Time Series
 darts
-Survival Analysis
+
+# Survival Analysis
 lifelines
-Network Analysis
+
+# Network Analysis
 networkx
-Financial
+
+# Financial
 yfinance
-Dashboard
+
+# Dashboard
 streamlit
-MLOps
+
+# MLOps
 mlflow
 
 ---
