@@ -1,0 +1,40 @@
+# Data Processing
+pandas
+numpy
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+plotly
+
+# Machine Learning
+xgboost
+lightgbm
+optuna
+shap
+
+# Time Series
+darts
+
+# Survival Analysis
+lifelines
+
+# Network Analysis
+networkx
+
+# Financial Data
+yfinance
+
+# MLOps
+mlflow
+
+# Dashboard
+streamlit
+
+# Utilities
+python-dotenv
+pyyaml
+tqdm
+jupyter
+ipykernel
