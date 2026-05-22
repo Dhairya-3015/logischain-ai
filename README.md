@@ -34,19 +34,14 @@ gap by integrating operational supply chain data into financial risk models.
 
 ## 🏗️ System Architecture
 
-┌────────────────────────────────────────────────────────────┐
-│                     LogisChain AI                          │
-├──────────────────────┬──────────────────┬──────────────────┤
-│   Physical Layer     │  Financial Layer │ Intelligence     │
-│  (Supply Chain)      │                  │ Layer (AI Models)│
-├──────────────────────┼──────────────────┼──────────────────┤
-│ • Port data          │ • LC pricing     │ • GNN embeddings │
-│ • Shipment data      │ • SCF rates      │ • TCN forecasting│
-│ • Carrier data       │ • CCC monitor    │ • Transformer    │
-│ • Inventory          │ • Covenant       │   risk analysis  │
-│ • OTIF metrics       │   monitoring     │ • XGBoost scoring│
-│                      │                  │ • SC-PD model    │
-└──────────────────────┴──────────────────┴──────────────────┘
+| 🏭 Physical Layer | 💰 Financial Layer | 🤖 Intelligence Layer |
+|:---|:---|:---|
+| **Supply Chain Operations** | **Trade Finance** | **AI Models** |
+| • Port congestion data | • LC pricing & approval | • GNN risk embeddings |
+| • Shipment tracking | • SCF programme mgmt | • TCN forecasting |
+| • Carrier reliability | • CCC monitoring | • Transformer risk |
+| • Inventory levels | • Covenant tracking | • XGBoost scoring |
+| • OTIF metrics | • Credit risk scoring | • SC-PD formula |
 
 ---
 
@@ -175,37 +170,53 @@ Breach Risk:    9/100 clients
 ## 🗂️ Project Structure
 
 logischain-ai/
-├── .gitignore   
+│
+├── .gitignore
 ├── README.md
 ├── requirements.txt
+│
 ├── data/
 │   ├── raw/
 │   │   └── supply_chain_data.csv
 │   ├── processed/
 │   │   ├── supply_chain_clean.csv
 │   │   └── eda_plots/
+│   │       ├── otif_by_supplier.png
+│   │       ├── delay_distribution.png
+│   │       ├── inventory_turnover.png
+│   │       ├── correlation_heatmap.png
+│   │       ├── carrier_reliability.png
+│   │       └── transport_risk.png
 │   └── features/
 │       └── features.csv
+│
 ├── src/
 │   ├── data/
-│   │   ├── data_loader.py
-│   │   ├── eda.py
-│   │   └── investigate.py
+│   │   ├── data_loader.py          ← D1: Load & clean raw data
+│   │   ├── eda.py                  ← D2: EDA visualizations
+│   │   └── investigate.py          ← Column investigation scripts
 │   ├── features/
-│   │   └── feature_engineering.py
+│   │   └── feature_engineering.py  ← D3: 7 SC metrics + 55 features
 │   ├── models/
-│   │   ├── xgboost_model.py
-│   │   ├── gnn.py
-│   │   ├── tcn.py
-│   │   └── transformer.py
+│   │   ├── xgboost_model.py        ← D7: XGBoost + SHAP (AUC: 0.639)
+│   │   ├── gnn.py                  ← D4: HetGAT GNN (210 nodes)
+│   │   ├── tcn.py                  ← D5: TCN forecast (MAPE: 0.77%)
+│   │   └── transformer.py          ← D6: Transformer (AUC: 0.993)
 │   └── financial/
-│       └── financial_models.py
+│       └── financial_models.py     ← D8-D10: SC-PD, CCC, TF models
+│
 ├── demo/
-│   └── app.py
+│   └── app.py                      ← D11-D13: LogisChain Lab (Streamlit)
+│
 ├── docs/
-│   ├── feature_catalog.md
-│   ├── patent_concept.md
+│   ├── feature_catalog.md          ← D3: 55 features documented
+│   ├── patent_concept.md           ← D16: Patent concepts
 │   └── screenshots/
+│       ├── trade_finance.png
+│       ├── supply_chain_finance.png
+│       ├── cargo_insurance.png
+│       └── logistics_investment.png
+│
 └── tests/
 
 ---
@@ -263,44 +274,16 @@ streamlit run demo/app.py
 
 ## 📦 Dependencies
 
-### Core
-pandas
-numpy
-scikit-learn
-
-### Visualization
-matplotlib
-seaborn
-plotly
-
-### Machine Learning
-xgboost
-lightgbm
-optuna
-shap
-
-### Deep Learning
-torch
-torch-geometric
-
-### Time Series
-darts
-
-### Survival Analysis
-lifelines
-
-### Network Analysis
-networkx
-
-### Financial
-yfinance
-
-### Dashboard
-streamlit
-
-### MLOps
-mlflow
-
+* **Core:** `pandas`, `numpy`, `scikit-learn`
+* **Visualization:** `matplotlib`, `seaborn`, `plotly`
+* **Machine Learning:** `xgboost`, `lightgbm`, `optuna`, `shap`
+* **Deep Learning:** `torch`, `torch-geometric`
+* **Time Series:** `darts`
+* **Survival Analysis:** `lifelines`
+* **Network Analysis:** `networkx`
+* **Financial:** `yfinance`
+* **Dashboard:** `streamlit`
+* **MLOps:** `mlflow`
 ---
 
 ## 📊 Data Sources
