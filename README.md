@@ -262,42 +262,42 @@ streamlit run demo/app.py
 
 ## 📦 Dependencies
 
-# Core
+#### Core
 pandas
 numpy
 scikit-learn
 
-# Visualization
+#### Visualization
 matplotlib
 seaborn
 plotly
 
-# Machine Learning
+#### Machine Learning
 xgboost
 lightgbm
 optuna
 shap
 
-# Deep Learning
+#### Deep Learning
 torch
 torch-geometric
 
-# Time Series
+#### Time Series
 darts
 
-# Survival Analysis
+#### Survival Analysis
 lifelines
 
-# Network Analysis
+#### Network Analysis
 networkx
 
-# Financial
+#### Financial
 yfinance
 
-# Dashboard
+#### Dashboard
 streamlit
 
-# MLOps
+#### MLOps
 mlflow
 
 ---
