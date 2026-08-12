@@ -4,7 +4,7 @@
 **Title:** AI-Powered Supply Chain Intelligence System for 
 Real-Time Trade Finance Risk Assessment
 
-**Applicant:** ZeTheta Algorithms Private Limited  
+**Applicant:** Dharya Agarwal  
 **Inventors:** LogisChain AI Development Team  
 **Filing Date:** May 2026  
 **Classification:** G06Q 40/00 | G06N 3/08 | G06Q 10/08
@@ -392,5 +392,5 @@ day advance warning of trade finance defaults.
 ---
 
 *Patent Concept Document v1.0*  
-*LogisChain AI | ZeTheta Algorithms | May 2026*  
-*CONFIDENTIAL — All IP belongs to ZeTheta Algorithms*
+*LogisChain AI | Dharya Agarwal | May 2026*  
+*CONFIDENTIAL — All IP belongs to Dharya Agarwal*
