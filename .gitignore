@@ -30,7 +30,7 @@ data/processed/model_results/*.pt
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
+# *.ipynb
 
 # MLflow
 mlruns/
