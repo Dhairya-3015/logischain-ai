@@ -17,7 +17,7 @@ intelligence directly into financial risk models for:
 - Supply Chain Finance (SCF) Platforms
 - Credit Risk Assessment
 
-**Submitted to:** ZeTheta Algorithms Private Limited  
+**Submitted to:** Dharya Agarwal  
 **Category:** Data Science | Supply Chain Analytics | Trade Finance | AI/ML  
 **Timeline:** 15 Days  
 
@@ -230,7 +230,7 @@ Windows/Mac/Linux
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/ZethetaIntern/logischain-ai
+git clone https://github.com/Dhairya-3015/logischain-ai
 cd logischain-ai
 ```
 
@@ -331,7 +331,7 @@ streamlit run demo/app.py
 
 ## 👥 Acknowledgements
 
-- **ZeTheta Algorithms** — Project design and administration
+- **Dharya Agarwal** — Project design and administration
 - **ICC Trade Register** — Default rate benchmarks
 - **Kaggle** — Supply chain dataset
 - **PyTorch Geometric** — GNN implementation
@@ -341,10 +341,9 @@ streamlit run demo/app.py
 ## 📄 License
 
 This project and all IP arising from submissions is the exclusive 
-property of Zetheta Algorithms Private Limited as per the 
+property of Dharya Agarwal as per the 
 confidentiality terms accepted at project commencement.
 
 ---
 
-*LogisChain AI v1.0 | ZeTheta Algorithms | 2026* 
-
+*LogisChain AI v1.0 | Dharya Agarwal | 2026*
